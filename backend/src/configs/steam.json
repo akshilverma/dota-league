@@ -1,0 +1,7 @@
+{
+	"urls": {
+		"baseUrl": "http://api.steampowered.com/IDOTA2Match",
+		"getTeamInfo": "GetTeamInfoByTeamID/v1"
+	},
+	"dota2Id": "570"
+}
