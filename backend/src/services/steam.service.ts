@@ -4,8 +4,8 @@ import Team from '../interfaces/team.interface';
 import { getSteamUrl } from '../utils/helpers';
 
 export async function getTeamById(teamId: number): Promise<Team | undefined> {
-	const url = getSteamUrl(SteamUrlLocations.TEAMS, teamId);
 	try {
+		const url = getSteamUrl(SteamUrlLocations.TEAMS, teamId);
 		const response = await axios.get(url);
 		const teamInfo: Team = response.data.result.teams[0];
 		teamInfo.id = teamId;
