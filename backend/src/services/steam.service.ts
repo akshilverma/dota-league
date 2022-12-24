@@ -1,10 +1,10 @@
 import axios from 'axios';
-import steamConfig from '../configs/steam.json';
+import SteamUrlLocations from '../enums/urlLocations.enum';
 import Team from '../interfaces/team.interface';
+import { getSteamUrl } from '../utils/helpers';
 
 export async function getTeamById(teamId: number): Promise<Team | undefined> {
-	const url = `${steamConfig.urls.baseUrl}_${steamConfig.dota2Id}/${steamConfig.urls.getTeamInfo}`+
-				`?key=${process.env.STEAM_API_KEY}&start_at_team_id=${teamId}&teams_requested=1`;
+	const url = getSteamUrl(SteamUrlLocations.TEAMS, teamId);
 	try {
 		const response = await axios.get(url);
 		const teamInfo: Team = response.data.result.teams[0];
